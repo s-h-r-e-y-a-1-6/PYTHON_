@@ -1,16 +1,16 @@
-n = int(input("Enter the number of terms: "))
-a, b = 0, 1
-count = 0
-if n <= 0:
-    print("Please enter a positive integer")
-elif n == 1:
-    print("Fibonacci sequence up to", n, "is:")
-    print(a)
+def is_prime(n):
+    if n <= 1:
+        return False
+    # Check for factors from 2 to sqrt(n)
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+n = int(input("Enter a number: "))
+
+
+if is_prime(n):
+    print(f"{n} is a prime number.")
 else:
-    print("Fibonacci sequence:")
-    while count < n:
-        print(a, end=' ')
-        nth = a + b
-        a = b
-        b = nth
-        count += 1
+    print(f"{n} is not a prime number.")
